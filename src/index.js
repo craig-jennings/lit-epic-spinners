@@ -7,3 +7,4 @@ import './components/FulfillingBouncingCircleSpinner.js';
 import './components/FulfillingSquareSpinner.js';
 import './components/HalfCircleSpinner.js';
 import './components/HollowDotsSpinner.js';
+import './components/IntersectingCirclesSpinner.js';
