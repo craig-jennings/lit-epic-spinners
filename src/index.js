@@ -16,3 +16,4 @@ import './components/ScalingSquaresSpinner.js';
 import './components/SelfBuildingSquareSpinner.js';
 import './components/SemipolarSpinner.js';
 import './components/SpringSpinner.js';
+import './components/SwappingSquaresSpinner.js';
