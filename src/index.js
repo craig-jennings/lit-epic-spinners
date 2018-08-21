@@ -5,3 +5,4 @@ import './components/FingerprintSpinner.js';
 import './components/FlowerSpinner.js';
 import './components/FulfillingBouncingCircleSpinner.js';
 import './components/FulfillingSquareSpinner.js';
+import './components/HalfCircleSpinner.js';
