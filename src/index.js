@@ -9,3 +9,4 @@ import './components/HalfCircleSpinner.js';
 import './components/HollowDotsSpinner.js';
 import './components/IntersectingCirclesSpinner.js';
 import './components/LoopingRhombusesSpinner.js';
+import './components/OrbitSpinner.js';
