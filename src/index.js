@@ -10,3 +10,4 @@ import './components/HollowDotsSpinner.js';
 import './components/IntersectingCirclesSpinner.js';
 import './components/LoopingRhombusesSpinner.js';
 import './components/OrbitSpinner.js';
+import './components/PixelSpinner.js';
