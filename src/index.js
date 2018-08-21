@@ -13,3 +13,4 @@ import './components/OrbitSpinner.js';
 import './components/PixelSpinner.js';
 import './components/RadarSpinner.js';
 import './components/ScalingSquaresSpinner.js';
+import './components/SelfBuildingSquareSpinner.js';
