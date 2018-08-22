@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class SwappingSquaresSpinner extends LitElement {
+export class SwappingSquaresSpinner extends LitElement {
   static get is() { return 'swapping-squares-spinner'; }
 
   static get properties() {

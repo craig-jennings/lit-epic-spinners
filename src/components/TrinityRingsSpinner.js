@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class TrinityRingsSpinner extends LitElement {
+export class TrinityRingsSpinner extends LitElement {
   static get is() { return 'trinity-rings-spinner'; }
 
   static get properties() {

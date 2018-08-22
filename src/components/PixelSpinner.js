@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class PixelSpinner extends LitElement {
+export class PixelSpinner extends LitElement {
   static get is() { return 'pixel-spinner'; }
 
   static get properties() {

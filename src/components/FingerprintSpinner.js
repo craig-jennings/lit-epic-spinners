@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class FingerprintSpinner extends LitElement {
+export class FingerprintSpinner extends LitElement {
   static get is() { return 'fingerprint-spinner'; }
 
   static get properties() {

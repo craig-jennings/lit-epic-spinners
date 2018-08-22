@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class BreedingRhombusSpinner extends LitElement {
+export class BreedingRhombusSpinner extends LitElement {
   static get is() { return 'breeding-rhombus-spinner'; }
 
   static get properties() {

@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class IntersectingCirclesSpinner extends LitElement {
+export class IntersectingCirclesSpinner extends LitElement {
   static get is() { return 'intersecting-circles-spinner'; }
 
   static get properties() {

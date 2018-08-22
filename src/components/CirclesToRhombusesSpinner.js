@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class CirclesToRhombusesSpinner extends LitElement {
+export class CirclesToRhombusesSpinner extends LitElement {
   static get is() { return 'circles-to-rhombuses-spinner'; }
 
   static get properties() {

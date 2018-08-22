@@ -1,6 +1,6 @@
 import { html, LitElement } from '@polymer/lit-element';
 
-class OrbitSpinner extends LitElement {
+export class OrbitSpinner extends LitElement {
   static get is() { return 'orbit-spinner'; }
 
   static get properties() {
