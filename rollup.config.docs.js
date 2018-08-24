@@ -1,3 +1,4 @@
+import html from 'rollup-plugin-fill-html';
 import pkg from './package.json';
 import resolve from 'rollup-plugin-node-resolve';
 
@@ -5,7 +6,7 @@ export default {
   input: pkg.main,
 
   output: {
-    file: pkg.browser,
+    file: 'docs/index.js',
     format: 'umd',
     name: 'LitEpicSpinners',
     sourcemap: 'inline',
@@ -13,5 +14,9 @@ export default {
 
   plugins: [
     resolve(),
+
+    html({
+      template: 'src/index.html',
+    }),
   ],
 };

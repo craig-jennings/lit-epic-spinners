@@ -14,7 +14,7 @@ const plugins = [
 
 const configs = [
   {
-    input: 'src/index.js',
+    input: pkg.main,
 
     output: {
       file: pkg.browser,

@@ -4,7 +4,6 @@
   "version": "0.1.2",
   "browser": "dist/lit-epic-spinners.js",
   "main": "src/index.js",
-  "module": "src/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -24,6 +23,7 @@
   ],
   "scripts": {
     "build:dev": "rollup -c rollup.config.dev.js",
+    "build:docs": "rollup -c rollup.config.docs.js",
     "build:prod": "rollup -c rollup.config.prod.js",
     "prepublishOnly": "yarn run build:prod",
     "test": "eslint src/ --quiet"
@@ -39,6 +39,7 @@
     "rollup": "^0.64.1",
     "rollup-plugin-babel-minify": "^5.0.0",
     "rollup-plugin-filesize": "^4.0.1",
+    "rollup-plugin-fill-html": "^1.1.0",
     "rollup-plugin-node-resolve": "^3.3.0"
   }
 }
