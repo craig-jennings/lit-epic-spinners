@@ -23,9 +23,9 @@
     "/src/**"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c --watch",
-    "prepublishOnly": "yarn run build",
+    "build:dev": "rollup -c rollup.config.dev.js",
+    "build:prod": "rollup -c rollup.config.prod.js",
+    "prepublishOnly": "yarn run build:prod",
     "test": "eslint src/ --quiet"
   },
   "dependencies": {

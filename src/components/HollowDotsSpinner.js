@@ -5,20 +5,20 @@ export class HollowDotsSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
+      duration: Number,
       color: String,
       numDots: Number,
-      size: String,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1;
     this.color = '#ff1d5e';
+    this.duration = 1;
     this.numDots = 3;
-    this.size = '15px';
+    this.size = 15;
   }
 
   _render() {
@@ -28,7 +28,7 @@ export class HollowDotsSpinner extends LitElement {
     for (let i = 1; i <= this.numDots; i++) {
       dotStyles.push(html`
         .hollow-dots-spinner .dot:nth-child(${i}) {
-          animation-delay: calc(300ms * ${i});
+          animation-delay: calc(var(--hollow-dots-spinner-duration, ${this.duration}s) / ${this.numDots} * ${i});
         }
       `);
 
@@ -37,28 +37,28 @@ export class HollowDotsSpinner extends LitElement {
 
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .hollow-dots-spinner {
-          height: ${this.size};
-          width: calc(${this.size} * 2 * ${this.numDots});
+          height: var(--hollow-dots-spinner-size, ${this.size}px);
+          width: calc(var(--hollow-dots-spinner-size, ${this.size}px) * 2 * ${this.numDots});
         }
 
         .hollow-dots-spinner .dot {
-          animation: hollow-dots-spinner-animation ${this.animationDuration}s ease infinite 0ms;
+          animation: hollow-dots-spinner-animation var(--hollow-dots-spinner-duration, ${this.duration}s) ease infinite 0ms;
           border-radius: 50%;
-          border: calc(${this.size} / 5) solid ${this.color};
+          border: calc(var(--hollow-dots-spinner-size, ${this.size}px) / 5) solid var(--hollow-dots-spinner-color, ${this.color});
           float: left;
-          height: ${this.size};
-          margin: 0 calc(${this.size} / 2);
+          height: var(--hollow-dots-spinner-size, ${this.size}px);
+          margin: 0 calc(var(--hollow-dots-spinner-size, ${this.size}px) / 2);
           transform: scale(0);
-          width: ${this.size};
+          width: var(--hollow-dots-spinner-size, ${this.size}px);
         }
 
         ${dotStyles}

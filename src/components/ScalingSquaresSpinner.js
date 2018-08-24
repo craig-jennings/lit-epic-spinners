@@ -5,52 +5,52 @@ export class ScalingSquaresSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1.25;
     this.color = '#ff1d5e';
-    this.size = '65px';
+    this.duration = 1.25;
+    this.size = 65;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .scaling-squares-spinner {
           align-items: center;
-          animation: scaling-squares-animation ${this.animationDuration}s infinite;
+          animation: scaling-squares-animation var(--scaling-squares-spinner-duration, ${this.duration}s) infinite;
           display: flex;
           flex-direction: row;
-          height: ${this.size};
+          height: var(--scaling-squares-spinner-size, ${this.size}px);
           justify-content: center;
           position: relative;
           transform: rotate(0deg);
-          width: ${this.size};
+          width: var(--scaling-squares-spinner-size, ${this.size}px);
         }
 
         .scaling-squares-spinner .square {
-          animation-duration: ${this.animationDuration}s;
+          animation-duration: var(--scaling-squares-spinner-duration, ${this.duration}s);
           animation-iteration-count: infinite;
-          border: calc(${this.size} * 0.04 / 1.3) solid ${this.color};
-          height: calc(${this.size} * 0.25 / 1.3);
+          border: calc(var(--scaling-squares-spinner-size, ${this.size}px) * 0.04 / 1.3) solid var(--scaling-squares-spinner-color, ${this.color});
+          height: calc(var(--scaling-squares-spinner-size, ${this.size}px) * 0.25 / 1.3);
           margin-left: auto;
           margin-right: auto;
           position: absolute;
-          width: calc(${this.size} * 0.25 / 1.3);
+          width: calc(var(--scaling-squares-spinner-size, ${this.size}px) * 0.25 / 1.3);
         }
 
         .scaling-squares-spinner .square:nth-child(1) {

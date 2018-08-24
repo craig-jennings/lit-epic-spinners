@@ -5,40 +5,40 @@ export class SpringSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 3;
     this.color = '#ff1d5e';
-    this.size = '60px';
+    this.duration = 3;
+    this.size = 60;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .spring-spinner {
-          height: ${this.size};
-          width: ${this.size};
+          height: var(--spring-spinner-size, ${this.size}px);
+          width: var(--spring-spinner-size, ${this.size}px);
         }
 
         .spring-spinner .spring-spinner-part {
-          height: calc(${this.size} / 2);
+          height: calc(var(--spring-spinner-size, ${this.size}px) / 2);
           overflow: hidden;
-          width: ${this.size};
+          width: var(--spring-spinner-size, ${this.size}px);
         }
 
         .spring-spinner  .spring-spinner-part.bottom {
@@ -46,39 +46,39 @@ export class SpringSpinner extends LitElement {
         }
 
         .spring-spinner .spring-spinner-rotator {
-          animation: spring-spinner-animation ${this.animationDuration}s ease-in-out infinite;
+          animation: spring-spinner-animation var(--spring-spinner-duration, ${this.duration}s) ease-in-out infinite;
           border-bottom-color: transparent;
           border-left-color: transparent;
           border-radius: 50%;
-          border-right-color: ${this.color};
+          border-right-color: var(--spring-spinner-color, ${this.color});
           border-style: solid;
-          border-top-color: ${this.color};
-          border-width: calc(${this.size} / 7);
-          height: ${this.size};
+          border-top-color: var(--spring-spinner-color, ${this.color});
+          border-width: calc(var(--spring-spinner-size, ${this.size}px) / 7);
+          height: var(--spring-spinner-size, ${this.size}px);
           transform: rotate(-200deg);
-          width: ${this.size};
+          width: var(--spring-spinner-size, ${this.size}px);
         }
 
         @keyframes spring-spinner-animation {
           0% {
-            border-width: calc(${this.size} / 7);
+            border-width: calc(var(--spring-spinner-size, ${this.size}px) / 7);
           }
 
           25% {
-            border-width: calc(${this.size} / 23.33);
+            border-width: calc(var(--spring-spinner-size, ${this.size}px) / 23.33);
           }
 
           50% {
             transform: rotate(115deg);
-            border-width: calc(${this.size} / 7);
+            border-width: calc(var(--spring-spinner-size, ${this.size}px) / 7);
           }
 
           75% {
-            border-width: calc(${this.size} / 23.33);
+            border-width: calc(var(--spring-spinner-size, ${this.size}px) / 23.33);
           }
 
           100% {
-            border-width: calc(${this.size} / 7);
+            border-width: calc(var(--spring-spinner-size, ${this.size}px) / 7);
           }
         }
       </style>

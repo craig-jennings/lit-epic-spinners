@@ -22,7 +22,7 @@ OR
   document.body.append(spinner);
 ```
 
-OR for a specific spinner
+or for a specific spinner
 
 ```js
   import 'lit-epic-spinners/dist/AtomSpinner.js';
@@ -41,7 +41,7 @@ OR for a specific spinner
 </body>
 ```
 
-OR for a specific spinner
+or for a specific spinner
 
 ```html
 <body>
@@ -51,130 +51,158 @@ OR for a specific spinner
 </body>
 ```
 
-## Components list
-You can easily configure a spinner's size, color, and animation speed
+## Configuration
+
+You can easily configure a spinner's size, color, and animation speed by either setting an attribute on the spinner element or by assigning a value to a corresponding css variable.
+
+### Attributes
 
 ```html
 <atom-spinner
-  animationDuration="1000"
   color="#ff1d5e"
-  size="60px"
+  duration="1"
+  size="60"
+></atom-spinner>
+```
+
+### CSS Variables (CSS Custom Properties)
+
+```html
+<style>
+  :root {
+    --atom-spinner-duration: 1s;
+    --atom-spinner-color: #ff1d5e;
+    --atom-spinner-size: 60px;
+  }
+</style>
+
+<atom-spinner></atom-spinner>
+```
+
+## Components list
+
+
+```html
+<atom-spinner
+  color="#ff1d5e"
+  duration="1"
+  size="60"
 ></atom-spinner>
 
 <breeding-rhombus-spinner
-  animationDuration="2000"
   color="#ff1d5e"
-  size="65px"
+  duration="2"
+  size="65"
 ></breeding-rhombus-spinner>
 
 <circles-to-rhombuses-spinner
-  animationDuration="1200"
-  numCircles="3"
   color="#ff1d5e"
-  size="15px"
+  duration="1.2"
+  numCircles="3"
+  size="15"
 ></circles-to-rhombuses-spinner>
 
 <fingerprint-spinner
-  animationDuration="1500"
   color="#ff1d5e"
-  size="64px"
+  duration="1.5"
+  size="64"
 ></fingerprint-spinner>
 
 <flower-spinner
-  animationDuration="2500"
   color="#ff1d5e"
-  size="70px"
+  duration="2.5"
+  size="70"
 ></flower-spinner>
 
 <fulfilling-bouncing-circle-spinner
-  animationDuration="4000"
   color="#ff1d5e"
-  size="60px"
+  duration="4"
+  size="60"
 ></fulfilling-bouncing-circle-spinner>
 
 <fulfilling-square-spinner
-  animationDuration="4000"
   color="#ff1d5e"
-  size="50px"
+  duration="4"
+  size="50"
 ></fulfilling-square-spinner>
 
 <half-circle-spinner
-  animationDuration="1000"
   color="#ff1d5e"
-  size="60px"
+  duration="1"
+  size="60"
 ></half-circle-spinner>
 
 <hollow-dots-spinner
-  animationDuration="1000"
   color="#ff1d5e"
+  duration="1"
   numDots="3"
-  size="15px"
+  size="15"
 ></hollow-dots-spinner>
 
 <intersecting-circles-spinner
-  animationDuration="1200"
   color="#ff1d5e"
-  size="70px"
+  duration="1.2"
+  size="70"
 ></intersecting-circles-spinner>
 
 <looping-rhombuses-spinner
-  animationDuration="2500"
   color="#ff1d5e"
-  size="15px"
+  duration="2.5"
+  size="15"
 ></looping-rhombuses-spinner>
 
 <orbit-spinner
-  animationDuration="1200"
   color="#ff1d5e"
-  size="55px"
+  duration="1.2"
+  size="55"
 ></orbit-spinner>
 
 <pixel-spinner
-  animationDuration="2000"
   color="#ff1d5e"
-  size="70px"
+  duration="2"
+  size="70"
 ></pixel-spinner>
 
 <radar-spinner
-  animationDuration="2000"
   color="#ff1d5e"
-  size="60px"
+  duration="2"
+  size="60"
 ></radar-spinner>
 
 <scaling-squares-spinner
-  animationDuration="1250"
   color="#ff1d5e"
-  size="65px"
+  duration="1.25"
+  size="65"
 ></scaling-squares-spinner>
 
 <self-building-square-spinner
-  animationDuration="6000"
   color="#ff1d5e"
-  size="40px"
+  duration="6"
+  size="40"
 ></self-building-square-spinner>
 
 <semipolar-spinner
-  animationDuration="2000"
   color="#ff1d5e"
-  size="65px"
+  duration="2"
+  size="65"
 ></semipolar-spinner>
 
 <spring-spinner
-  animationDuration="3000"
   color="#ff1d5e"
-  size="60px"
+  duration="3"
+  size="60"
 ></spring-spinner>
 
 <swapping-squares-spinner
-  animationDuration="1000"
   color="#ff1d5e"
-  size="65px"
+  duration="1"
+  size="65"
 ></swapping-squares-spinner>
 
 <trinity-rings-spinner
-  animationDuration="1500"
   color="#ff1d5e"
-  size="66px"
+  duration="1.5"
+  size="66"
 ></trinity-rings-spinner>
 ```
 

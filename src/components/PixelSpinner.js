@@ -5,43 +5,43 @@ export class PixelSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 2;
     this.color = '#ff1d5e';
-    this.size = '70px';
+    this.duration = 2;
+    this.size = 70;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
         }
 
        .pixel-spinner {
           align-items: center;
           display: flex;
           flex-direction: row;
-          height: ${this.size};
+          height: var(--pixel-spinner-size, ${this.size}px);
           justify-content: center;
-          width: ${this.size};
+          width: var(--pixel-spinner-size, ${this.size}px);
         }
 
         .pixel-spinner .pixel-spinner-inner {
-          animation: pixel-spinner-animation ${this.animationDuration}s linear infinite;
-          background-color: ${this.color};
+          animation: pixel-spinner-animation var(--pixel-spinner-duration, ${this.duration}s) linear infinite;
+          background-color: var(--pixel-spinner-color, ${this.color});
           box-shadow: 15px 15px  0 0,
                       -15px -15px  0 0,
                       15px -15px  0 0,
@@ -50,9 +50,9 @@ export class PixelSpinner extends LitElement {
                       15px 0  0 0,
                       -15px 0  0 0,
                       0 -15px 0 0;
-          color: ${this.color};
-          height: calc(${this.size} / 7);
-          width: calc(${this.size} / 7);
+          color: var(--pixel-spinner-color, ${this.color});
+          height: calc(var(--pixel-spinner-size, ${this.size}px) / 7);
+          width: calc(var(--pixel-spinner-size, ${this.size}px) / 7);
         }
 
         @keyframes pixel-spinner-animation {

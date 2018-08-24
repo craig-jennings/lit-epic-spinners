@@ -5,35 +5,35 @@ export class AtomSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = '1';
     this.color = '#ff1d5e';
-    this.size = '60px';
+    this.duration = 1;
+    this.size = 60;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
         .atom-spinner {
-          height: ${this.size};
+          height: var(--atom-spinner-size, ${this.size}px);
           overflow: hidden;
-          width: ${this.size};
+          width: var(--atom-spinner-size, ${this.size}px);
         }
 
         .atom-spinner .spinner-inner {
@@ -44,9 +44,9 @@ export class AtomSpinner extends LitElement {
         }
 
         .atom-spinner .spinner-circle {
-          color: ${this.color};
+          color: var(--atom-spinner-color, ${this.color});
           display: block;
-          font-size: calc(${this.size} * 0.24);
+          font-size: calc(var(--atom-spinner-size, ${this.size}px) * 0.24);
           left: 50%;
           position: absolute;
           top: 50%;
@@ -54,26 +54,26 @@ export class AtomSpinner extends LitElement {
         }
 
         .atom-spinner .spinner-line {
-          border-left: calc(${this.size} / 25) solid ${this.color};
+          border-left: calc(var(--atom-spinner-size, ${this.size}px) / 25) solid var(--atom-spinner-color, ${this.color});
           border-radius: 50%;
-          border-top: calc(${this.size} / 25) solid transparent;
+          border-top: calc(var(--atom-spinner-size, ${this.size}px) / 25) solid transparent;
           height: 100%;
           position: absolute;
           width: 100%;
         }
 
         .atom-spinner .spinner-line:nth-child(1) {
-          animation: atom-spinner-animation-1 ${this.animationDuration}s linear infinite;
+          animation: atom-spinner-animation-1 var(--atom-spinner-duration, ${this.duration}s) linear infinite;
           transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
         }
 
         .atom-spinner .spinner-line:nth-child(2) {
-          animation: atom-spinner-animation-2 ${this.animationDuration}s linear infinite;
+          animation: atom-spinner-animation-2 var(--atom-spinner-duration, ${this.duration}s) linear infinite;
           transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
         }
 
         .atom-spinner .spinner-line:nth-child(3) {
-          animation: atom-spinner-animation-3 ${this.animationDuration}s linear infinite;
+          animation: atom-spinner-animation-3 var(--atom-spinner-duration, ${this.duration}s) linear infinite;
           transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
         }
 

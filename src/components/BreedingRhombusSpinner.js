@@ -5,34 +5,34 @@ export class BreedingRhombusSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = '2';
     this.color = '#ff1d5e';
-    this.size = '65px';
+    this.duration = 2;
+    this.size = 65;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
         .breeding-rhombus-spinner {
-          height: ${this.size};
-          width: ${this.size};
+          height: var(--breeding-rhombus-spinner-size, ${this.size}px);
+          width: var(--breeding-rhombus-spinner-size, ${this.size}px);
           position: relative;
           transform: rotate(45deg);
         }
@@ -42,14 +42,14 @@ export class BreedingRhombusSpinner extends LitElement {
         }
 
         .breeding-rhombus-spinner .rhombus {
-          animation-duration: ${this.animationDuration}s;
+          animation-duration: var(--breeding-rhombus-spinner-duration, ${this.duration}s);
           animation-iteration-count: infinite;
-          background-color: ${this.color};
-          height: calc(${this.size} / 7.5);
-          left: calc(${this.size} / 2.3077);
+          background-color: var(--breeding-rhombus-spinner-color, ${this.color});
+          height: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 7.5);
+          left: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 2.3077);
           position: absolute;
-          top: calc(${this.size} / 2.3077);
-          width: calc(${this.size} / 7.5);
+          top: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 2.3077);
+          width: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 7.5);
         }
 
         .breeding-rhombus-spinner .rhombus:nth-child(2n+0) {
@@ -98,12 +98,12 @@ export class BreedingRhombusSpinner extends LitElement {
 
         .breeding-rhombus-spinner .rhombus.big {
           animation-delay: 0.5s;
-          animation: breeding-rhombus-spinner-animation-child-big ${this.animationDuration}s infinite;
-          background-color: ${this.color};
-          height: calc(${this.size} / 3);
-          left: calc(${this.size} / 3);
-          top: calc(${this.size} / 3);
-          width: calc(${this.size} / 3);
+          animation: breeding-rhombus-spinner-animation-child-big var(--breeding-rhombus-spinner-duration, ${this.duration}s) infinite;
+          background-color: var(--breeding-rhombus-spinner-color, ${this.color});
+          height: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 3);
+          left: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 3);
+          top: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 3);
+          width: calc(var(--breeding-rhombus-spinner-size, ${this.size}px) / 3);
         }
 
         @keyframes breeding-rhombus-spinner-animation-child-1 {

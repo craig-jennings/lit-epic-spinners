@@ -5,70 +5,70 @@ export class TrinityRingsSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1.5;
     this.color = '#ff1d5e';
-    this.size = '60px';
+    this.duration = 1.5;
+    this.size = 60;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
         }
 
        .trinity-rings-spinner {
           align-items: center;
           display: flex;
           flex-direction: row;
-          height: calc(${this.size} * 2);
+          height: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 2);
           justify-content: center;
           overflow: hidden;
           padding: 3px;
           position: relative;
-          width: calc(${this.size} * 2);
+          width: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 2);
         }
 
         .trinity-rings-spinner .circle {
           border-radius: 50%;
-          border: 3px solid ${this.color};
+          border: 3px solid var(--trinity-rings-spinner-color, ${this.color});
           display: block;
           opacity: 1;
           position: absolute;
         }
 
         .trinity-rings-spinner .circle:nth-child(1) {
-          animation: trinity-rings-spinner-circle1-animation ${this.animationDuration}s infinite linear;
+          animation: trinity-rings-spinner-circle1-animation var(--trinity-rings-spinner-duration, ${this.duration}s) infinite linear;
           border-width: 3px;
-          height: ${this.size};
-          width: ${this.size};
+          height: var(--trinity-rings-spinner-size, ${this.size}px);
+          width: var(--trinity-rings-spinner-size, ${this.size}px);
         }
 
         .trinity-rings-spinner .circle:nth-child(2) {
-          animation: trinity-rings-spinner-circle2-animation ${this.animationDuration}s infinite linear;
+          animation: trinity-rings-spinner-circle2-animation var(--trinity-rings-spinner-duration, ${this.duration}s) infinite linear;
           border-width: 2px;
-          height: calc(${this.size} * 0.65);
-          width: calc(${this.size} * 0.65);
+          height: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 0.65);
+          width: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 0.65);
         }
 
         .trinity-rings-spinner .circle:nth-child(3) {
-          animation:trinity-rings-spinner-circle3-animation ${this.animationDuration}s infinite linear;
+          animation:trinity-rings-spinner-circle3-animation var(--trinity-rings-spinner-duration, ${this.duration}s) infinite linear;
           border-width: 1px;
-          height: calc(${this.size} * 0.1);
-          width: calc(${this.size} * 0.1);
+          height: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 0.1);
+          width: calc(var(--trinity-rings-spinner-size, ${this.size}px) * 0.1);
         }
 
         @keyframes trinity-rings-spinner-circle1-animation{

@@ -5,56 +5,56 @@ export class FlowerSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 2.5;
+    this.duration = 2.5;
     this.color = '#ff1d5e';
-    this.size = '70px';
+    this.size = 70;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
         }
 
         .flower-spinner {
           align-items: center;
           display: flex;
           flex-direction: row;
-          height: ${this.size};
+          height: var(--flower-spinner-size, ${this.size}px);
           justify-content: center;
-          width: ${this.size};
+          width: var(--flower-spinner-size, ${this.size}px);
         }
 
         .flower-spinner .dots-container {
-          height: calc(${this.size} / 7);
-          width: calc(${this.size} / 7);
+          height: calc(var(--flower-spinner-size, ${this.size}px) / 7);
+          width: calc(var(--flower-spinner-size, ${this.size}px) / 7);
         }
 
         .flower-spinner .smaller-dot {
-          animation: flower-spinner-smaller-dot-animation ${this.animationDuration}s 0s infinite both;
-          background: ${this.color};
+          animation: flower-spinner-smaller-dot-animation var(--flower-spinner-duration, ${this.duration}s) 0s infinite both;
+          background: var(--fingerprint-spinner-color, ${this.color});
           border-radius: 50%;
           height: 100%;
           width: 100%;
         }
 
         .flower-spinner .bigger-dot {
-          animation: flower-spinner-bigger-dot-animation ${this.animationDuration}s 0s infinite both;
-          background: ${this.color};
+          animation: flower-spinner-bigger-dot-animation var(--flower-spinner-duration, ${this.duration}s) 0s infinite both;
+          background: var(--fingerprint-spinner-color, ${this.color});
           border-radius: 50%;
           height: 100%;
           padding: 10%;
@@ -63,70 +63,70 @@ export class FlowerSpinner extends LitElement {
 
         @keyframes flower-spinner-bigger-dot-animation {
           0%, 100% {
-            box-shadow: ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px;
           }
           50% {
             transform: rotate(180deg);
           }
           25%, 75% {
-            box-shadow: ${this.color} 26px 0px 0px,
-                        ${this.color} -26px 0px 0px,
-                        ${this.color} 0px 26px 0px,
-                        ${this.color} 0px -26px 0px,
-                        ${this.color} 19px -19px 0px,
-                        ${this.color} 19px 19px 0px,
-                        ${this.color} -19px -19px 0px,
-                        ${this.color} -19px 19px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 26px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -26px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 26px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px -26px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 19px -19px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 19px 19px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -19px -19px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -19px 19px 0px;
           }
           100% {
             transform: rotate(360deg);
-            box-shadow: ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px;
           }
         }
         @keyframes flower-spinner-smaller-dot-animation {
           0%, 100% {
-            box-shadow: ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px,
-            ${this.color} 0px 0px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+            var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px;
           }
           25%, 75% {
-            box-shadow: ${this.color} 14px 0px 0px,
-                        ${this.color} -14px 0px 0px,
-                        ${this.color} 0px 14px 0px,
-                        ${this.color} 0px -14px 0px,
-                        ${this.color} 10px -10px 0px,
-                        ${this.color} 10px 10px 0px,
-                        ${this.color} -10px -10px 0px,
-                        ${this.color} -10px 10px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 14px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -14px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 14px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px -14px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 10px -10px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 10px 10px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -10px -10px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) -10px 10px 0px;
           }
           100% {
-            box-shadow: ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px,
-                        ${this.color} 0px 0px 0px;
+            box-shadow: var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px,
+                        var(--fingerprint-spinner-color, ${this.color}) 0px 0px 0px;
           }
         }
       </style>

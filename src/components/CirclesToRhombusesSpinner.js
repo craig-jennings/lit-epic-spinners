@@ -5,20 +5,20 @@ export class CirclesToRhombusesSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
+      duration: Number,
       numCircles: Number,
-      size: String,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = '1.2';
     this.color = '#ff1d5e';
+    this.duration = 1.2;
     this.numCircles = 3;
-    this.size = '15px';
+    this.size = 15;
   }
 
   _render() {
@@ -28,7 +28,7 @@ export class CirclesToRhombusesSpinner extends LitElement {
     for (let i = 2; i <= this.numCircles; i++) {
       circleStyles.push(html`
         .circles-to-rhombuses-spinner .circle:nth-child(${i}) {
-          animation-delay: calc(150ms * ${i});
+          animation-delay: calc(var(--circles-to-rhombuses-spinner-duration, ${this.duration}s) / 8 * ${i});
         }
       `);
 
@@ -37,12 +37,12 @@ export class CirclesToRhombusesSpinner extends LitElement {
 
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
         }
 
         .circles-to-rhombuses-spinner, .circles-to-rhombuses-spinner * {
@@ -52,25 +52,25 @@ export class CirclesToRhombusesSpinner extends LitElement {
         .circles-to-rhombuses-spinner {
           align-items: center;
           display: flex;
-          height: ${this.size};
+          height: var(--circles-to-rhombuses-spinner-size, ${this.size}px);
           justify-content: center
-          width: calc( (${this.size} + ${this.size} * 1.125) * ${this.numCircles});
+          width: calc((var(--circles-to-rhombuses-spinner-size, ${this.size}px) + var(--circles-to-rhombuses-spinner-size, ${this.size}px) * 1.125) * ${this.numCircles});
         }
 
         .circles-to-rhombuses-spinner .circle {
-          animation: circles-to-rhombuses-animation ${this.animationDuration}s linear infinite;
+          animation: circles-to-rhombuses-animation var(--circles-to-rhombuses-spinner-duration, ${this.duration}s) linear infinite;
           background: transparent;
           border-radius: 10%;
-          border: 3px solid ${this.color};
-          height: ${this.size};
-          margin-left: calc(${this.size} * 1.125);
+          border: 3px solid var(--circles-to-rhombuses-spinner-color, ${this.color});
+          height: var(--circles-to-rhombuses-spinner-size, ${this.size}px);
+          margin-left: calc(var(--circles-to-rhombuses-spinner-size, ${this.size}px) * 1.125);
           overflow: hidden;
           transform: rotate(45deg);
-          width: ${this.size};
+          width: var(--circles-to-rhombuses-spinner-size, ${this.size}px);
         }
 
         .circles-to-rhombuses-spinner .circle:nth-child(1) {
-          animation-delay: calc(150ms * 1);
+          animation-delay: calc(var(--circles-to-rhombuses-spinner-duration, ${this.duration}s) / 8 * 1);
           margin-left: 0;
         }
 

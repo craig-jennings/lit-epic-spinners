@@ -5,59 +5,59 @@ export class LoopingRhombusesSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 2.5;
     this.color = '#ff1d5e';
-    this.size = '15px';
+    this.duration = 2.5;
+    this.size = 15;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .looping-rhombuses-spinner {
-          height: ${this.size};
+          height: var(--looping-rhombuses-spinner-size, ${this.size}px);
           position: relative;
-          width: calc(${this.size} * 4);
+          width: calc(var(--looping-rhombuses-spinner-size, ${this.size}px) * 4);
         }
 
         .looping-rhombuses-spinner .rhombus {
-          animation: looping-rhombuses-spinner-animation ${this.animationDuration}s linear infinite;
-          background-color: ${this.color};
+          animation: looping-rhombuses-spinner-animation var(--looping-rhombuses-spinner-duration, ${this.duration}s) linear infinite;
+          background-color: var(--looping-rhombuses-spinner-color, ${this.color});
           border-radius: 2px;
-          height: ${this.size};
-          left: calc(${this.size} * 4);
+          height: var(--looping-rhombuses-spinner-size, ${this.size}px);
+          left: calc(var(--looping-rhombuses-spinner-size, ${this.size}px) * 4);
           margin: 0 auto;
           position: absolute;
           transform: translateY(0) rotate(45deg) scale(0);
-          width: ${this.size};
+          width: var(--looping-rhombuses-spinner-size, ${this.size}px);
         }
 
         .looping-rhombuses-spinner .rhombus:nth-child(1) {
-          animation-delay: calc(${this.animationDuration}s * 1 / -1.5);
+          animation-delay: calc(var(--looping-rhombuses-spinner-duration, ${this.duration}s) * 1 / -1.5);
         }
 
         .looping-rhombuses-spinner .rhombus:nth-child(2) {
-          animation-delay: calc(${this.animationDuration}s * 2 / -1.5);
+          animation-delay: calc(var(--looping-rhombuses-spinner-duration, ${this.duration}s) * 2 / -1.5);
         }
 
         .looping-rhombuses-spinner .rhombus:nth-child(3) {
-          animation-delay: calc(${this.animationDuration}s * 3 / -1.5);
+          animation-delay: calc(var(--looping-rhombuses-spinner-duration, ${this.duration}s) * 3 / -1.5);
         }
 
         @keyframes looping-rhombuses-spinner-animation {

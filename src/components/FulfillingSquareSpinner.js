@@ -5,46 +5,46 @@ export class FulfillingSquareSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 4;
     this.color = '#ff1d5e';
-    this.size = '50px';
+    this.duration = 4;
+    this.size = 50;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
         .fulfilling-square-spinner {
-          height: ${this.size};
-          width: ${this.size};
+          height: var(--fulfilling-square-spinner-size, ${this.size}px);
+          width: var(--fulfilling-square-spinner-size, ${this.size}px);
           position: relative;
-          border: 4px solid ${this.color};
-          animation: fulfilling-square-spinner-animation ${this.animationDuration}s infinite ease;
+          border: 4px solid var(--fulfilling-square-spinner-color, ${this.color});
+          animation: fulfilling-square-spinner-animation var(--fulfilling-square-spinner-duration, ${this.duration}s) infinite ease;
         }
 
         .fulfilling-square-spinner .spinner-inner {
           vertical-align: top;
           display: inline-block;
-          background-color: ${this.color};
+          background-color: var(--fulfilling-square-spinner-color, ${this.color});
           width: 100%;
           opacity: 1;
-          animation: fulfilling-square-spinner-inner-animation ${this.animationDuration}s infinite ease-in;
+          animation: fulfilling-square-spinner-inner-animation var(--fulfilling-square-spinner-duration, ${this.duration}s) infinite ease-in;
         }
 
         @keyframes fulfilling-square-spinner-animation {

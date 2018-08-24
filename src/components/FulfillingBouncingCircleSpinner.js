@@ -5,59 +5,59 @@ export class FulfillingBouncingCircleSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 4;
     this.color = '#ff1d5e';
-    this.size = '50px';
+    this.duration = 4;
+    this.size = 50;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
         .fulfilling-bouncing-circle-spinner {
-          animation: fulfilling-bouncing-circle-spinner-animation infinite ${this.animationDuration}s ease;
-          height: ${this.size};
+          animation: fulfilling-bouncing-circle-spinner-animation infinite var(--fulfilling-bouncing-circle-spinner-duration, ${this.duration}s) ease;
+          height: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
           position: relative;
-          width: ${this.size};
+          width: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
         }
 
         .fulfilling-bouncing-circle-spinner .orbit {
-          animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite ${this.animationDuration}s ease;
+          animation: fulfilling-bouncing-circle-spinner-orbit-animation infinite var(--fulfilling-bouncing-circle-spinner-duration, ${this.duration}s) ease;
           border-radius: 50%;
-          border: calc(${this.size} * 0.03) solid ${this.color};
-          height: ${this.size};
+          border: calc(var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px) * 0.03) solid var(--fulfilling-bouncing-circle-spinner-color, ${this.color});
+          height: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
           left: 0;
           position: absolute;
           top: 0;
-          width: ${this.size};
+          width: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
         }
 
         .fulfilling-bouncing-circle-spinner .circle {
-          animation: fulfilling-bouncing-circle-spinner-circle-animation infinite ${this.animationDuration}s ease;
+          animation: fulfilling-bouncing-circle-spinner-circle-animation infinite var(--fulfilling-bouncing-circle-spinner-duration, ${this.duration}s) ease;
           border-radius: 50%;
-          border: calc(${this.size} * 0.1) solid ${this.color};
-          color: ${this.color};
+          border: calc(var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px) * 0.1) solid var(--fulfilling-bouncing-circle-spinner-color, ${this.color});
+          color: var(--fulfilling-bouncing-circle-spinner-color, ${this.color});
           display: block;
-          height: ${this.size};
+          height: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
           position: relative;
           transform: rotate(0deg) scale(1);
-          width: ${this.size};
+          width: var(--fulfilling-bouncing-circle-spinner-size, ${this.size}px);
         }
 
         @keyframes fulfilling-bouncing-circle-spinner-animation {

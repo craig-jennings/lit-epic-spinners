@@ -5,54 +5,54 @@ export class SwappingSquaresSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1;
     this.color = '#ff1d5e';
-    this.size = '65px';
+    this.duration = 1;
+    this.size = 65;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
         }
 
        .swapping-squares-spinner {
           align-items: center;
           display: flex;
           flex-direction: row;
-          height: ${this.size};
+          height: var(--swapping-squares-spinner-size, ${this.size}px);
           justify-content: center;
           position: relative;
-          width: ${this.size};
+          width: var(--swapping-squares-spinner-size, ${this.size}px);
         }
 
         .swapping-squares-spinner .square {
-          animation-duration: ${this.animationDuration}s;
+          animation-duration: var(--swapping-squares-spinner-duration, ${this.duration}s);
           animation-iteration-count: infinite;
-          border: calc(${this.size} * 0.04 / 1.3) solid ${this.color};
-          height: calc(${this.size} * 0.25 / 1.3);
+          border: calc(var(--swapping-squares-spinner-size, ${this.size}px) * 0.04 / 1.3) solid var(--swapping-squares-spinner-color, ${this.color});
+          height: calc(var(--swapping-squares-spinner-size, ${this.size}px) * 0.25 / 1.3);
           margin-left: auto;
           margin-right: auto;
           position: absolute;
-          width: calc(${this.size} * 0.25 / 1.3);
+          width: calc(var(--swapping-squares-spinner-size, ${this.size}px) * 0.25 / 1.3);
         }
 
         .swapping-squares-spinner .square:nth-child(1) {
-          animation-delay: calc(${this.animationDuration}s / 2);
+          animation-delay: calc(var(--swapping-squares-spinner-duration, ${this.duration}s) / 2);
           animation-name: swapping-squares-animation-child-1;
         }
 
@@ -62,7 +62,7 @@ export class SwappingSquaresSpinner extends LitElement {
         }
 
         .swapping-squares-spinner .square:nth-child(3) {
-          animation-delay: calc(${this.animationDuration}s / 2);
+          animation-delay: calc(var(--swapping-squares-spinner-duration, ${this.duration}s) / 2);
           animation-name: swapping-squares-animation-child-3;
         }
 

@@ -5,36 +5,36 @@ export class OrbitSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1.2;
     this.color = '#ff1d5e';
-    this.size = '55px';
+    this.duration = 1.2;
+    this.size = 55;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .orbit-spinner {
           border-radius: 50%;
-          height: ${this.size};
+          height: var(--orbit-spinner-size, ${this.size}px);
           perspective: 800px;
-          width: ${this.size};
+          width: var(--orbit-spinner-size, ${this.size}px);
         }
 
         .orbit-spinner .orbit {
@@ -46,22 +46,22 @@ export class OrbitSpinner extends LitElement {
         }
 
         .orbit-spinner .orbit:nth-child(1) {
-          animation: orbit-spinner-orbit-one-animation ${this.animationDuration}s linear infinite;
-          border-bottom: 3px solid ${this.color};
+          animation: orbit-spinner-orbit-one-animation var(--orbit-spinner-duration, ${this.duration}s) linear infinite;
+          border-bottom: 3px solid var(--orbit-spinner-color, ${this.color});
           left: 0%;
           top: 0%;
         }
 
         .orbit-spinner .orbit:nth-child(2) {
-          animation: orbit-spinner-orbit-two-animation ${this.animationDuration}s linear infinite;
-          border-right: 3px solid ${this.color};
+          animation: orbit-spinner-orbit-two-animation var(--orbit-spinner-duration, ${this.duration}s) linear infinite;
+          border-right: 3px solid var(--orbit-spinner-color, ${this.color});
           right: 0%;
           top: 0%;
         }
 
         .orbit-spinner .orbit:nth-child(3) {
-          animation: orbit-spinner-orbit-three-animation ${this.animationDuration}s linear infinite;
-          border-top: 3px solid ${this.color};
+          animation: orbit-spinner-orbit-three-animation var(--orbit-spinner-duration, ${this.duration}s) linear infinite;
+          border-top: 3px solid var(--orbit-spinner-color, ${this.color});
           bottom: 0%;
           right: 0%;
         }

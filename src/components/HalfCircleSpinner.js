@@ -5,41 +5,41 @@ export class HalfCircleSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 1;
+    this.duration = 1;
     this.color = '#ff1d5e';
-    this.size = '60px';
+    this.size = 60;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .half-circle-spinner {
           border-radius: 100%;
-          height: ${this.size};
+          height: var(--half-circle-spinner-size, ${this.size}px);
           position: relative;
-          width: ${this.size};
+          width: var(--half-circle-spinner-size, ${this.size}px);
         }
 
         .half-circle-spinner .circle {
           border-radius: 100%;
-          border: calc(${this.size} / 10) solid transparent;
+          border: calc(var(--half-circle-spinner-size, ${this.size}px) / 10) solid transparent;
           content: "";
           height: 100%;
           position: absolute;
@@ -47,13 +47,13 @@ export class HalfCircleSpinner extends LitElement {
         }
 
         .half-circle-spinner .circle.circle-1 {
-          animation: half-circle-spinner-animation ${this.animationDuration}s infinite;
-          border-top-color: ${this.color};
+          animation: half-circle-spinner-animation var(--half-circle-spinner-duration, ${this.duration}s) infinite;
+          border-top-color: var(--half-circle-spinner-color, ${this.color});
         }
 
         .half-circle-spinner .circle.circle-2 {
-          animation: half-circle-spinner-animation ${this.animationDuration}s infinite alternate;
-          border-bottom-color: ${this.color};
+          animation: half-circle-spinner-animation var(--half-circle-spinner-duration, ${this.duration}s) infinite alternate;
+          border-bottom-color: var(--half-circle-spinner-color, ${this.color});
         }
 
         @keyframes half-circle-spinner-animation {

@@ -5,83 +5,83 @@ export class SelfBuildingSquareSpinner extends LitElement {
 
   static get properties() {
     return {
-      animationDuration: Number,
       color: String,
-      size: String,
+      duration: Number,
+      size: Number,
     };
   }
 
   constructor() {
     super();
 
-    this.animationDuration = 6;
     this.color = '#ff1d5e';
-    this.size = '10px';
+    this.duration = 6;
+    this.size = 10;
   }
 
   _render() {
     return html`
       <style>
-        :host {
-          display: block;
-        }
-
         * {
           box-sizing: border-box;
         }
 
+        :host {
+          display: block;
+        }
+
        .self-building-square-spinner {
-          height: ${this.size} * 4;
-          top: calc(${this.size} * 2 / 3);
-          width: ${this.size} * 4;
+          height: calc(var(--self-building-square-spinner-size, ${this.size}px) * 4);
+          top: calc(var(--self-building-square-spinner-size, ${this.size}px) * 2 / 3);
+          width: calc(var(--self-building-square-spinner-size, ${this.size}px) * 4);
         }
         .self-building-square-spinner .square {
-          animation: self-building-square-spinner ${this.animationDuration}s infinite;
-          background: ${this.color};
+          animation: self-building-square-spinner var(--self-building-square-spinner-duration, ${this.duration}s) infinite;
+          background: var(--self-building-square-spinner-color, ${this.color});
           float: left;
-          height: ${this.size};
-          margin-right: calc(${this.size} / 3);
-          margin-top: calc(${this.size} / 3);
+          height: var(--self-building-square-spinner-size, ${this.size}px);
+          margin-right: calc(var(--self-building-square-spinner-size, ${this.size}px) / 3);
+          margin-top: calc(var(--self-building-square-spinner-size, ${this.size}px) / 3);
           opacity: 0;
           position:relative;
-          top: calc(-${this.size} * 2 / 3);
-          width: ${this.size};
+          top: calc(var(--self-building-square-spinner-size, ${this.size}px) * -2 / 3);
+          width: var(--self-building-square-spinner-size, ${this.size}px);
         }
 
         .self-building-square-spinner .square:nth-child(1) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 6);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 6);
         }
 
         .self-building-square-spinner .square:nth-child(2) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 7);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 7);
         }
 
         .self-building-square-spinner .square:nth-child(3) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 8);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 8);
         }
 
         .self-building-square-spinner .square:nth-child(4) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 3);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 3);
         }
 
         .self-building-square-spinner .square:nth-child(5) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 4);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 4);
         }
 
         .self-building-square-spinner .square:nth-child(6) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 5);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 5);
         }
 
         .self-building-square-spinner .square:nth-child(7) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 0);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 0);
         }
 
         .self-building-square-spinner .square:nth-child(8) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 1);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 1);
         }
 
         .self-building-square-spinner .square:nth-child(9) {
-          animation-delay: calc(${this.animationDuration}s / 20 * 2);
+          animation-delay: calc(var(--self-building-square-spinner-duration, ${this.duration}s) / 20 * 2);
         }
 
         .self-building-square-spinner .clear {
