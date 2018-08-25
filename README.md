@@ -1,5 +1,6 @@
 # Lit Epic Spinners
-[![npm](https://img.shields.io/npm/dm/lit-epic-spinners.svg)]() [![npm](https://img.shields.io/npm/l/lit-epic-spinners.svg)]() [![npm](https://img.shields.io/npm/v/lit-epic-spinners.svg)]()
+[![npm](https://img.shields.io/npm/v/lit-epic-spinners.svg?style=popout-square)](https://www.npmjs.com/package/lit-epic-spinners)
+[![npm](https://img.shields.io/npm/l/lit-epic-spinners.svg?style=popout-square)](https://github.com/craigjennings11/lit-epic-spinners/blob/master/LICENSE)
 
 Web Component implementations of [epic-spinners](https://github.com/epicmaxco/epic-spinners) by [EpicMax](http://epic-spinners.epicmax.co/)
 
